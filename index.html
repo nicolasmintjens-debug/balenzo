@@ -12,17 +12,89 @@
 <meta name="theme-color" content="#000000">
 
 <style>
-body { font-family: Arial, Helvetica, sans-serif; background: #0f0f0f; color: white; margin: 0; text-align: center; }
-.header { background: #000; padding: 30px 20px; }
-.logo { width: 160px; }
-.container { padding: 20px; max-width: 500px; margin: auto; }
-.section { margin-top: 30px; margin-bottom: 10px; font-size: 14px; letter-spacing: 1px; color: #aaa; }
-.button { display: block; background: #1e88e5; color: white; padding: 18px; border-radius: 12px; text-decoration: none; font-size: 17px; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.4); text-align: left; position: relative; margin-bottom: 12px; }
-.button:hover { background: #1565c0; }
-.button.profile { margin-bottom: 12px; }
-input { padding: 12px; width: 80%; border-radius: 8px; border: none; margin-bottom: 10px; }
-.favItem { position: relative; margin-bottom: 12px; }
-.favStar { position: absolute; right: 16px; color: gold; font-size: 20px; top: 50%; transform: translateY(-50%); cursor: pointer; }
+/* Algemene body styling */
+body { 
+  font-family: Arial, Helvetica, sans-serif; 
+  background: #000000; /* zwarte achtergrond */
+  color: #ffffff;       /* witte tekst */
+  margin: 0; 
+  text-align: center; 
+}
+
+/* Header */
+.header { 
+  background: #000000; /* zwart */
+  padding: 30px 20px; 
+}
+
+.logo { 
+  width: 160px; 
+}
+
+/* Container */
+.container { 
+  padding: 20px; 
+  max-width: 500px; 
+  margin: auto; 
+}
+
+/* Sectie titels */
+.section { 
+  margin-top: 30px; 
+  margin-bottom: 10px; 
+  font-size: 14px; 
+  letter-spacing: 1px; 
+  color: #ffffff; /* wit */
+}
+
+/* Buttons styling */
+.button { 
+  display: block; 
+  background: #ff0000; /* rood */
+  color: #ffffff;       /* wit */
+  padding: 18px; 
+  border-radius: 12px; 
+  text-decoration: none; 
+  font-size: 17px; 
+  font-weight: 600; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4); 
+  text-align: left; 
+  position: relative; 
+  margin-bottom: 12px; 
+}
+
+.button:hover { 
+  background: #cc0000; /* donkerrood bij hover */
+}
+
+.button.profile { 
+  margin-bottom: 12px; 
+}
+
+/* Input */
+input { 
+  padding: 12px; 
+  width: 80%; 
+  border-radius: 8px; 
+  border: none; 
+  margin-bottom: 10px; 
+}
+
+/* Favorieten items */
+.favItem { 
+  position: relative; 
+  margin-bottom: 12px; 
+}
+
+.favStar { 
+  position: absolute; 
+  right: 16px; 
+  color: gold; 
+  font-size: 20px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  cursor: pointer; 
+}
 </style>
 </head>
 
@@ -179,7 +251,6 @@ function updateFavoritesSection(){
     const orig = document.querySelector(`.favItem[data-id="${id}"]`);
     if(orig){
       const clone = orig.cloneNode(true);
-      // Ster in clone om favoriet te verwijderen
       clone.querySelector('.favStar').addEventListener('click', function(e){
         e.preventDefault(); e.stopPropagation();
         favorites = favorites.filter(f => f!==id);
